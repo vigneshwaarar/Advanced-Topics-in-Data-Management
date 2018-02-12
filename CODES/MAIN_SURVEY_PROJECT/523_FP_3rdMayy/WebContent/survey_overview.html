@@ -1,0 +1,121 @@
+<%-- survey_overview.html is a personal info start page, here the terms and conditions are specified to take up the survey,
+This page is directed from the survey_start_page.jsp --%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>JSP Page</title>
+<style>
+body {
+background-color: #FFFACD;
+}
+</style>
+<style>
+div.cities {
+    height: 10000px;
+    width: 1000px;
+
+    top: 20%;
+    left: 45%;
+    margin-top: -100px;
+    margin-left: -400px;
+} 
+p.ex {
+    height: 80px;
+    width: 1000px;
+}
+h2 {
+    text-align: center;
+}
+
+#loadingDiv{
+
+ /*  position:fixed;
+  top:0px;
+  right:0px;
+  width:100%;
+  height:100%;
+  background-color:#666;
+  background-image:url('IIT_BACKGROUND.gif');
+  background-repeat:no-repeat;
+  
+  z-index:10000000;
+  opacity: 0.4;
+  filter: alpha(opacity=40); For IE8 and earlier */
+}
+
+</style>
+</head>
+<body>
+<div id="loadingDiv">
+    <div>
+        <h7> </h7>
+    </div>
+</div>
+<div >
+<h1><font color="black">Informed Consent Form</h1>
+<body bgcolor="#ffffff">
+<h2>Introduction</h2>
+  <center><p class = "ex"><big>This study attempts to collect students' tastes on final projects in ITM classes. In future, we can directly build intelligent systems to recommend topics or data to the students, in order to let them quickly find any projects they are interested in.</big></p></center>
+<h2>Procedures</h2>
+  <center><p class = "ex"><big>You will be be shown a list of movies, and you will be asked to rate movies by imagining in which situations you will go to see the movie. We also ask which situations you think are the best ones to see such a movie, and so on. This questionnaire will be conducted with an online Qualtrics-created survey.</big></p></center>
+<h2>Benefits or Compensation</h2>
+  <center><p class = "ex"><big>There are no direct benefits or compensation for participants. However, it is hoped that through your participation, researchers will learn more about your opinions on movie preferences so that we can provide better services in the future.</big></p></center>
+<h2>Confidentiality</h2>
+  <center><p class = "ex"><big>All data obtained from participants will be kept confidential and will only be reported in an aggregate format and the information about your identities will be anonymized. All questionnaires will be concealed, and no one other than then primary investigator and assistant researches will have access to them. The data collected will be stored in the HIPPA-compliant, Qualtrics-secure database until it has been deleted by the primary investigator.</big></p></center>
+ <h2>Participation and Estimated Time</h2>
+  <center><p class = "ex"><big>Participation in this research study is completely voluntary. You have the right to withdraw at anytime or refuse to participate entirely. The whole survey will take you around or less than 20 minutes to complete.</big></p>
+<h2>Browser</h2>
+<p><b>Note:</b> I have read, understood the above consent form and desire of my own free will to participate in this study.</p>
+
+<form id="parFormID" name="parForm">
+  <input type="radio" name="partRadio" value="Yes"> Yes<br>
+  <input type="radio" name="partRadio" value="No"> No<br>
+  
+  <input type="button" onclick="submitForm()" value="Next">
+  
+  <p class = "ex"><big>We suggest to use IE or Firefox browsers. Opera and Chrome have less problems on Mac machines, but it seems that ratings cannot be given on some Opera/Chrome browsers under Windows environment.</big></p> 
+<script type="text/javascript">
+function validateRadio (radios,elem)
+{
+    for (i = 0; i < radios.length; ++ i)
+    {
+        if (radios [i].checked && radios [i].value == "Yes") 
+        {
+        	
+        	elem.setAttribute("action","http://localhost:8080/523_FP_3rdMayy/personal_info.jsp");
+            elem.submit();
+        	return true;        	
+       }
+        else if (radios [i].checked && radios [i].value == "No") 
+    	{
+        	 
+        	elem.setAttribute("action","http://localhost:8080/523_FP_3rdMayy/ThankYou.html");
+            elem.submit();
+        	return true;
+        	        
+    	}                 	
+    }
+	return false;
+}
+function submitForm()
+{
+	var elem = document.getElementById("parFormID");
+    if(validateRadio (document.forms["parForm"]["partRadio"],elem))
+    {
+    	return true;
+    }
+    else
+    {
+    	elem.focus;
+    	alert("Please select 'Yes' or 'No' at the bottom of the page");
+    	elem.style.color = "red";
+        return false;
+    }
+}
+</script>
+</div>
+</form>
+</center>
+</body>
+</html>
+

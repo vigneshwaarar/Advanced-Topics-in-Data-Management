@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {
+background-color: #FFFACD;
+}
+</style>
+</head>
+<body>
+<form name="myname">
+<input type="checkbox" name="myCB" value="A" /> A<br />
+<input type="checkbox" name="myCB" value="B" /> B<br />
+<input type="checkbox" name="myCB" value="C" /> C<br />
+<input type="checkbox" name="myCB" value="G" /> G<br />
+<input type="checkbox" name="myCB" value="H" /> H<br />
+<input type="checkbox" name="myCB" value="I" /> I<br />
+<input  id="save-btn" onclick="chk();" type="button" value="Button" />
+</form>
+<script>
+function chk()
+{
+	var count=0;
+	var chkbox = document.forms["myname"]["myCB"];
+	var chkSelected = '';
+
+	for(i=0; i < chkbox.length; i++)
+	{
+		if(chkbox[i].checked)
+		{
+			chkSelected = chkSelected + ',' + chkbox[i].value;
+		}
+	}
+	alert(chkSelected);
+}
+
+</script>
+</body>
+</html>
